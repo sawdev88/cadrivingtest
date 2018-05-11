@@ -1,4 +1,7 @@
 $grey: #f9f9f9;
+$light-blue: #5bc0de;
+$green: #5cb85c;
+$red: #d9534f;
 
 html {
   font-size: 1.5vw;
@@ -20,6 +23,34 @@ h4 {
   font-size: 1.5rem;
 }
 
+ul {
+  padding-left: 1rem;
+}
+
+li {
+  margin: .25rem 0;
+  padding: .5rem .25rem;
+  list-style: none;
+  cursor: pointer;
+}
+
+.sm-margin {
+  margin: .5rem 0;
+}
+
+.title-margin {
+  margin-bottom: 1rem;
+}
+
+.btn {
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  font-size: 1.25rem;
+  border: none;
+  background: $light-blue;
+  color: #fff;
+}
+
 .center {
   display: flex;
   justify-content: center;
@@ -28,16 +59,16 @@ h4 {
 
 .container {
   background: $grey;
-  padding: 4rem 0;
+  padding: 4rem 0 8rem;
 }
 
 .width {
-  width: 70%;
+  width: 65%;
   margin: 0 auto;
 }
 
 #landing-banner {
-  background: url('./img/banner.jpg') no-repeat center center / cover;
+  background: url('./img/banner.jpg') no-repeat center center / cover fixed;
   height: 80vh;
   width: 100%;
 
@@ -47,4 +78,35 @@ h4 {
     border-radius: 5px;
     text-align: center;
   }
+}
+
+.questionnaire-callout {
+  background: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+  margin: 1.5rem 0;
+  position: relative;
+}
+
+.grade {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1rem;
+  border-radius: 8px;
+}
+
+.active {
+  background: $light-blue;
+  color: #fff;
+  padding-left: .75rem;
+}
+
+.correct > .grade {
+  background: $green;
+}
+
+.wrong > .grade {
+  background: $red;
 }
