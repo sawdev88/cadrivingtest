@@ -4,6 +4,8 @@ import Button from './Button';
 import Question from './Question';
 import Choices from './Choices';
 import Results from './Results';
+import Nav from './Nav';
+import InternalBanner from './InternalBanner';
 
 export {
   Question,
@@ -11,5 +13,7 @@ export {
   Questionnaire,
   Button,
   Choices,
-  Results
+  Results,
+  Nav,
+  InternalBanner
 }

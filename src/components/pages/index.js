@@ -1,5 +1,7 @@
 import LandingPage from './LandingPage';
+import Test1 from './Test1';
 
 export {
-  LandingPage
+  LandingPage,
+  Test1
 }

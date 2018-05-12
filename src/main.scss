@@ -114,7 +114,20 @@ li {
 
 #landing-banner {
   background: url('./img/banner.jpg') no-repeat center center / cover fixed;
-  height: 80vh;
+  height: 100vh;
+  width: 100%;
+
+  .callout {
+    padding: 2rem;
+    background: rgba(255,255,255,.95);
+    border-radius: 5px;
+    text-align: center;
+  }
+}
+
+#internal-banner {
+  background: url('./img/banner.jpg') no-repeat center center / cover fixed;
+  height: 60vh;
   width: 100%;
 
   .callout {

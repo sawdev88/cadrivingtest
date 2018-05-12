@@ -5,6 +5,7 @@ import './main.min.css';
 
 import {
   LandingPage,
+  Test1
 } from './components/pages';
 
 class App extends Component {
@@ -14,6 +15,7 @@ class App extends Component {
         <Router history={createBrowserHistory()}>
           <Switch>
             <Route exact path='/' component={ LandingPage } />
+            <Route exact path='/test-1' component={ Test1 } />
           </Switch>
         </Router>
       </div>
