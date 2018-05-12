@@ -1,4 +1,4 @@
-$grey: #f9f9f9;
+$grey: #efefef;
 $light-blue: #5bc0de;
 $green: #5cb85c;
 $red: #d9534f;
@@ -23,6 +23,11 @@ h4 {
   font-size: 1.5rem;
 }
 
+h6 {
+  font-size: .8rem;
+  display: inline-block;
+}
+
 ul {
   padding-left: 1rem;
 }
@@ -32,6 +37,26 @@ li {
   padding: .5rem .25rem;
   list-style: none;
   cursor: pointer;
+}
+
+.action-btn {
+  padding: .5rem 1rem;
+  cursor: pointer;
+  transition: .3s ease-in-out;
+
+  &:hover {
+    opacity: .7;
+  }
+}
+
+.red {
+  background: $red;
+  color: #fff;
+}
+
+.blue {
+  background: $light-blue;
+  color: #fff;
 }
 
 .sm-margin {
@@ -67,6 +92,26 @@ li {
   margin: 0 auto;
 }
 
+#results {
+  position: fixed;
+  bottom: 4rem;
+  right: 4rem;
+  padding: 1rem 3rem;
+  background: #fff;
+  z-index: 10;
+  text-align: center;
+  border: .2rem solid #333;
+  border-radius: 5px;
+}
+
+.show {
+  display: inline-block;
+}
+
+.hide {
+  display: none;
+}
+
 #landing-banner {
   background: url('./img/banner.jpg') no-repeat center center / cover fixed;
   height: 80vh;
@@ -93,7 +138,7 @@ li {
   left: 0;
   top: 0;
   bottom: 0;
-  width: 1rem;
+  width: .75rem;
   border-radius: 8px;
 }
 

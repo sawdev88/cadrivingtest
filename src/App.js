@@ -4,7 +4,7 @@ import createBrowserHistory from 'history/createBrowserHistory';
 import './main.min.css';
 
 import {
-  LandingPage
+  LandingPage,
 } from './components/pages';
 
 class App extends Component {

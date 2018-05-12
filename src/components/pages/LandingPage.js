@@ -4,7 +4,8 @@ import {
   Question,
   LandingBanner,
   Questionnaire,
-  Button
+  Button,
+  Results
 } from '../'
 
 import test1 from '../../tests/test1'
@@ -13,12 +14,7 @@ class LandingPage extends Component {
   constructor(props) {
     super(props)
 
-    this.state = {
-      testSubmitted: false,
-      totalAnswered: 0,
-      totalQuestions: 0
-    }
-
+    this.state = this.getInitialState();
     this.gradeQuiz = this.gradeQuiz.bind(this)
   }
 
@@ -28,19 +24,42 @@ class LandingPage extends Component {
     })
   }
 
-  gradeQuiz() {
-    let questions = document.querySelectorAll('.question-callout');
-    let selectedAnswers = document.querySelectorAll('.active');
+  getInitialState = () => {
+    const initialState = {
+        testSubmitted: false,
+        totalAnswered: 0,
+        correctAnswers: 0,
+        showResults: false
+     };
+    return initialState;
+  }
 
-    this.setState({
-      totalAnswered: selectedAnswers.length
-    })
+  resetState = () => {
+    this.setState(this.getInitialState());
+    let activeList = document.getElementsByTagName('LI');
+
+    for (var i = 0; i < activeList.length; i++) {
+      activeList[i].classList.remove('active');
+    }
+
+    let gradeList = document.getElementsByTagName('UL');
+    for (var i = 0; i < gradeList.length; i++) {
+      gradeList[i].classList.remove('correct', 'wrong');
+    }
+
+  }
+
+  gradeQuiz() {
+    let questions = document.querySelectorAll('.question-callout'),
+        selectedAnswers = document.querySelectorAll('.active'),
+        correctAnswers = 0;
 
     if (this.state.totalQuestions === selectedAnswers.length) {
       selectedAnswers.forEach((value, index) => {
         //console.log(value);
         if (value.getAttribute('value') === value.getAttribute('answer')) {
           value.parentNode.classList = 'correct'
+          correctAnswers++;
         } else {
           value.parentNode.classList = 'wrong'
         }
@@ -49,10 +68,11 @@ class LandingPage extends Component {
       alert('questions missed')
     }
 
-    questions.forEach((value, i) => {
-      // value.childNodes.forEach((child) => {
-      //   console.log(child);
-      // })
+    this.setState({
+      totalAnswered: selectedAnswers.length,
+      testSubmitted: true,
+      correctAnswers: correctAnswers,
+      showResults: true
     })
   }
 
@@ -66,7 +86,6 @@ class LandingPage extends Component {
               return (
                 <div>
                   <Questionnaire
-                    testSubmitted = { testSubmitted => testSubmitted(testSubmitted) }
                     title={ item.question }
                     answer={ item.answer }
                     arr={ item.choices } />
@@ -77,6 +96,13 @@ class LandingPage extends Component {
             total: { this.state.totalAnswered } / { this.state.totalQuestions }
           </div>
         </div>
+        <Results
+          totalQuestions={ this.state.totalQuestions }
+          correctAnswers={ this.state.correctAnswers }
+          showResults={ this.state.showResults }
+          onClose={ () => this.setState({ showResults: !this.state.showResults }) }
+          onRetry={ () => this.resetState() }
+          />
       </div>
     )
   }
