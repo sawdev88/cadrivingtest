@@ -10,7 +10,7 @@ const InternalBanner = (props) => {
       <div className="callout">
         <h1>{ props.title }</h1>
         <h4>{ props.description }</h4>
-        { Nav }
+        <Nav quizTitle={ props.quizTitle } />
       </div>
     </section>
   )

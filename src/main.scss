@@ -2,6 +2,11 @@ $grey: #efefef;
 $light-blue: #5bc0de;
 $green: #5cb85c;
 $red: #d9534f;
+$ease: .3s ease-in-out;
+
+* {
+  box-sizing: border-box;
+}
 
 html {
   font-size: 1.5vw;
@@ -29,7 +34,7 @@ h6 {
 }
 
 ul {
-  padding-left: 1rem;
+  padding: 0;
 }
 
 li {
@@ -37,6 +42,22 @@ li {
   padding: .5rem .25rem;
   list-style: none;
   cursor: pointer;
+  transition: $ease;
+
+  &:hover {
+    background: $light-blue;
+    color: #fff;
+    padding-left: .5rem;
+
+    & > a {
+      color: #fff;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+  color: #333;
 }
 
 .action-btn {
@@ -69,11 +90,18 @@ li {
 
 .btn {
   border-radius: 5px;
-  padding: 1rem 2rem;
+  padding: .75rem 2rem;
   font-size: 1.25rem;
   border: none;
   background: $light-blue;
   color: #fff;
+  transition: $ease;
+  cursor: pointer;
+
+  &:hover {
+    background: #51acc7;
+    box-shadow: 1px 1px 1px rgba(50,50,50,.25);
+  }
 }
 
 .center {
@@ -112,6 +140,33 @@ li {
   display: none;
 }
 
+.select {
+  border-radius: 5px;
+  position: relative;
+
+  .dropdown {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    display: none;
+    background: #fff;
+    border: .1rem solid #666;
+    margin: 0;
+    border-radius: 5px;
+    padding: 2rem 0;
+
+    li:hover {
+      background: $green;
+    }
+  }
+
+  &.showing > .dropdown {
+    display: block
+  }
+}
+
 #landing-banner {
   background: url('./img/banner.jpg') no-repeat center center / cover fixed;
   height: 100vh;
@@ -144,6 +199,10 @@ li {
   padding: 2rem;
   margin: 1.5rem 0;
   position: relative;
+
+  ul {
+    margin-left: .5rem;
+  }
 }
 
 .grade {

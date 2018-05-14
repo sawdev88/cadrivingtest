@@ -46,7 +46,6 @@ class LandingPage extends Component {
     for (var i = 0; i < gradeList.length; i++) {
       gradeList[i].classList.remove('correct', 'wrong');
     }
-
   }
 
   gradeQuiz() {
@@ -78,7 +77,10 @@ class LandingPage extends Component {
   render() {
     return (
       <div>
-        <InternalBanner title={ 'CA Driving Tests' } description={ 'Practice Test #1' } />
+        <InternalBanner
+          title={ 'CA Driving Tests' }
+          description={ 'Practice Test #1' }
+          quizTitle={ 'Select another Test' } />
         <div className="container">
           <div className="width">
             {test1.map((item, index) => {
@@ -92,7 +94,6 @@ class LandingPage extends Component {
               )
             })}
             <Button title="Submit" onClick={ () => this.gradeQuiz } />
-            total: { this.state.totalAnswered } / { this.state.totalQuestions }
           </div>
         </div>
         <Results
