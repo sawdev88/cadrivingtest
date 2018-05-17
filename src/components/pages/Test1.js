@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 
 import {
-  Question,
   InternalBanner,
   Questionnaire,
   Button,
   Results
 } from '../'
 
-import test1 from '../../tests/test1'
+import quiz from '../../tests/test1'
 
-class LandingPage extends Component {
+class Test1 extends Component {
   constructor(props) {
     super(props)
 
@@ -38,19 +37,18 @@ class LandingPage extends Component {
     this.setState(this.getInitialState());
     let activeList = document.getElementsByTagName('LI');
 
-    for (var i = 0; i < activeList.length; i++) {
+    for (let i = 0; i < activeList.length; i++) {
       activeList[i].classList.remove('active');
     }
 
     let gradeList = document.getElementsByTagName('UL');
-    for (var i = 0; i < gradeList.length; i++) {
+    for (let i = 0; i < gradeList.length; i++) {
       gradeList[i].classList.remove('correct', 'wrong');
     }
   }
 
   gradeQuiz() {
-    let questions = document.querySelectorAll('.question-callout'),
-        selectedAnswers = document.querySelectorAll('.active'),
+    let selectedAnswers = document.querySelectorAll('.active'),
         correctAnswers = 0;
 
     if (this.state.totalQuestions === selectedAnswers.length) {
@@ -83,9 +81,9 @@ class LandingPage extends Component {
           quizTitle={ 'Select another Test' } />
         <div className="container">
           <div className="width">
-            {test1.map((item, index) => {
+            {quiz.map((item, index) => {
               return (
-                <div>
+                <div key={ index }>
                   <Questionnaire
                     title={ item.question }
                     answer={ item.answer }
@@ -108,4 +106,4 @@ class LandingPage extends Component {
   }
 }
 
-export default LandingPage
+export default Test1;

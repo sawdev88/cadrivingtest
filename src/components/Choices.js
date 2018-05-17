@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 function handleClick(e) {
   e.preventDefault();
@@ -15,6 +15,7 @@ const Choices = (props) => {
     return (
       <li
         onClick= { (e) => handleClick(e) }
+        key= { index }
         value= { index }
         answer= { props.answer }>
         { item }
